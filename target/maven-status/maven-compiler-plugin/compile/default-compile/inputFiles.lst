@@ -1,0 +1,10 @@
+/Users/hernanematida/Documents/ProgWeb/Trabalho/ram/src/main/java/br/com/rentamovie/ram/model/entities/ProfileEnum.java
+/Users/hernanematida/Documents/ProgWeb/Trabalho/ram/src/main/java/br/com/rentamovie/ram/model/repositories/PersonRepo.java
+/Users/hernanematida/Documents/ProgWeb/Trabalho/ram/src/main/java/br/com/rentamovie/ram/model/entities/RentMovie.java
+/Users/hernanematida/Documents/ProgWeb/Trabalho/ram/src/main/java/br/com/rentamovie/ram/RamApplication.java
+/Users/hernanematida/Documents/ProgWeb/Trabalho/ram/src/main/java/br/com/rentamovie/ram/controller/HomeController.java
+/Users/hernanematida/Documents/ProgWeb/Trabalho/ram/src/main/java/br/com/rentamovie/ram/model/entities/Person.java
+/Users/hernanematida/Documents/ProgWeb/Trabalho/ram/src/main/java/br/com/rentamovie/ram/model/entities/Movie.java
+/Users/hernanematida/Documents/ProgWeb/Trabalho/ram/src/main/java/br/com/rentamovie/ram/model/repositories/MovieRepo.java
+/Users/hernanematida/Documents/ProgWeb/Trabalho/ram/src/main/java/br/com/rentamovie/ram/model/entities/Genre.java
+/Users/hernanematida/Documents/ProgWeb/Trabalho/ram/src/main/java/br/com/rentamovie/ram/model/repositories/GenreRepo.java
