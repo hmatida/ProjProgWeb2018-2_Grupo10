@@ -31,6 +31,15 @@ p{
     margin-top: 2rem;
 }
 
+.iconIndex{
+    color: greenyellow;
+}
+
+.filmeBlock{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
 /*Ratting config*/
 .rating {
       float:left;

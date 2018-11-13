@@ -5,6 +5,7 @@
  */
 package br.com.rentamovie.ram.model.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,6 +27,7 @@ public class Movie {
     
     private String name;
     
+    @Column(length = 800, nullable = false)
     private String prospect;
     
     private int rating;
