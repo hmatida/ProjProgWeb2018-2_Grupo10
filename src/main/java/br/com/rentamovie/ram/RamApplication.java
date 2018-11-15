@@ -74,7 +74,7 @@ public class RamApplication {
                     + "organização é revelada como SPECTRE");
             movie.setRating(4);
             movie.setRentPrice((float) 6.50);
-            movie.setTrailler("https://www.youtube.com/watch?v=ashLaclKCik");
+            movie.setTrailler("9mseplf-llU");
             movie.setYear(2015);
             movieRepo.save(movie);
             
@@ -97,7 +97,7 @@ public class RamApplication {
                     + "realmente uma força infinita.");
             movie2.setRating(3);
             movie2.setRentPrice((float) 6.00);
-            movie2.setTrailler("https://www.youtube.com/watch?v=r8kE7rSzfQs");
+            movie2.setTrailler("r8kE7rSzfQs");
             movie2.setYear(2017);
             movieRepo.save(movie2);
 
@@ -116,9 +116,9 @@ public class RamApplication {
                     + "novo, Sam (Charlie Tahan): treinar Beisebol com ele "
                     + "todos os dias durante 1 hora aos canhões do por do sol "
                     + "até Charlie ir para a faculdade.");
-            movie3.setRating(2);
+            movie3.setRating(1);
             movie3.setRentPrice((float) 3.70);
-            movie3.setTrailler("https://www.youtube.com/watch?v=KyplZ7b7UfY");
+            movie3.setTrailler("KyplZ7b7UfY");
             movie3.setYear(2010);
             movieRepo.save(movie3);
 
@@ -138,7 +138,7 @@ public class RamApplication {
                     + "apenas escuta.");
             movie4.setRating(5);
             movie4.setRentPrice((float) 3.00);
-            movie4.setTrailler("https://www.youtube.com/watch?v=sY1S34973zA");
+            movie4.setTrailler("sY1S34973zA");
             movie4.setYear(1972);
             movieRepo.save(movie4);
 
@@ -159,7 +159,7 @@ public class RamApplication {
                     + "Sindicato.");
             movie5.setRating(4);
             movie5.setRentPrice((float) 4.30);
-            movie5.setTrailler("https://www.youtube.com/watch?v=F-qBD17wwrQ");
+            movie5.setTrailler("qBD17wwrQ");
             movie5.setYear(2015);
             movieRepo.save(movie5);
 
@@ -178,7 +178,7 @@ public class RamApplication {
                     + " desaparecimento do jovem Jedi Anakin Skywalker.");
             movie6.setRating(4);
             movie6.setRentPrice((float) 3.89);
-            movie6.setTrailler("https://www.youtube.com/watch?v=sC9abcLLQpI");
+            movie6.setTrailler("frdj1zb9sMY");
             movie6.setYear(2016);
             movieRepo.save(movie6);
 
@@ -196,7 +196,7 @@ public class RamApplication {
                     + "e agora é preso pelo demônio de fogo Surtur.");
             movie7.setRating(3);
             movie7.setRentPrice((float) 4.00);
-            movie7.setTrailler("https://www.youtube.com/watch?v=v7MGUNV8MxU");
+            movie7.setTrailler("v7MGUNV8MxU");
             movie7.setYear(2017);
             movieRepo.save(movie7);
 

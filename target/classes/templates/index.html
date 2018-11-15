@@ -28,48 +28,6 @@
             </a>
         </div>
         <div class="container-fluid">
-            <!--            <div class="row filmeBlock">
-                            <div class="col-md-3 offset-1">
-                                <img th:src="@{/images/film_rogueone.jpg}" alt="Generic placeholder image">
-                            </div>
-                            <div class="col-sm-8">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <h4 class="mt-0">Rogue One: A Star Wars Story</h4>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <div class="rating">
-                                            <input type="radio" id="star10" name="rating" value="10" /><label for="star10"></label>
-                                            <input type="radio" id="star9" name="rating" value="9" /><label for="star9"></label>
-                                            <input type="radio" id="star8" name="rating" value="8" checked="checked" /><label for="star8"></label>
-                                            <input type="radio" id="star7" name="rating" value="7" /><label for="star7"></label>
-                                            <input type="radio" id="star6" name="rating" value="6" /><label for="star6" ></label>
-                                        </div>
-                                    </div>
-            
-                                    <div class="col-sm-12">
-                                        <p>2015    </p>
-                                        <p>Aventura</p>
-                                    </div>
-            
-                                    <div class="col-sm-10">
-                                        <p class="prospect">A Aliança Rebelde realiza um movimento arriscado de roubar os planos de destruição da Estrela da Morte para trazer uma nova esperança para a galáxia.</p>
-                                    </div>
-                                    <div class="col-sm-2"></div>
-                                    <div class="col-sm-10">
-                                        <p class="actors">Elenco: Felicity Jones, Diego Luna, Riz Ahmed, Ben Mendelsohn.</p>
-                                        <p class="actors">Direção: Gareth Edwards</p>
-                                    </div>
-                                    <div class="col-sm-2"></div>
-                                    <div class="col-sm-12">
-                                        <div class="filmBottons">
-                                            <button type="button" class="btn btn-outline-success" data-toggle="tooltip" data-placement="top" title="Alugue já!">R$ 6,00</button>
-                                            <button type="button" class="btn btn-outline-success">Trailler</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>-->
 
             <!--Iteração com a lista de filmes disponíveis-->
             <div class="filmeBlock" th:each = "f : ${movies}">
@@ -104,8 +62,20 @@
                             <div class="col-sm-2"></div>
                             <div class="col-sm-12">
                                 <div class="filmBottons">
-                                    <button type="button" class="btn btn-outline-success" data-toggle="tooltip" data-placement="top" title="Alugue já!" th:text="'R$ '+${#numbers.formatDecimal(f.rentPrice, 0, 'POINT', 2, 'COMMA')}"></button>
-                                    <button type="button" class="btn btn-outline-success">Trailler</button>
+                                    <a 
+                                            class="btn btn-outline-success"
+                                            role="button" aria-pressed="true"
+                                            data-toggle="tooltip" 
+                                            data-placement="top" 
+                                            title="Alugue já!" 
+                                            th:text="'R$ '+${#numbers.formatDecimal(f.rentPrice, 0, 'POINT', 2, 'COMMA')}">
+                                    </a>
+                                    <a 
+                                        th:href="@{/detalhe_filme/{idMovie}(idMovie=${f.id_movie})}" 
+                                        class="btn btn-outline-success" 
+                                        role="button" aria-pressed="true">
+                                        Trailer
+                                    </a>
                                 </div>
                             </div>
                         </div>

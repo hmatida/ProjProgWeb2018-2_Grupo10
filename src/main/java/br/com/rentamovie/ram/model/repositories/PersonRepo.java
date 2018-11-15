@@ -6,7 +6,9 @@
 package br.com.rentamovie.ram.model.repositories;
 
 import br.com.rentamovie.ram.model.entities.Person;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
 /**
  *
@@ -14,4 +16,6 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface PersonRepo extends CrudRepository<Person, Long> {
     
+    @Query("SELECT p FROM Person p WHERE p.email like :email")
+    public Person findPersonByEmail(@Param("email") String email);
 }
