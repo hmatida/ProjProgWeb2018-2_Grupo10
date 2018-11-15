@@ -42,7 +42,6 @@ public class HomeController {
     
     @GetMapping("/detalhe_filme/{idMovie}")
     public ModelAndView movieDetails(@PathVariable("idMovie")Long id_movie) {
-        System.out.println("Tessteeee >>>>");
         ModelAndView mod = new ModelAndView("detalhe_filme");
         return movieService.movieById(mod, id_movie);
     }
