@@ -52,8 +52,8 @@
                 </ul>
                 <ul class="navbar-nav justify-content-end">
                     <div class="btn btn-group dropleft">
-                        <button type="button" class="btn btn-outline-success">Meus Filmes  <span class="badge badge-light">9</span></button>
-                        <button type="button" class="btn btn-outline-success">Opções</button>
+                        <button type="button" class="btn btn-outline-success">Meus Filmes  <span class="badge badge-light" th:text="${moviesNumber}"></span></button>
+                        <button type="button" class="btn btn-outline-success" th:text="${user.name}"></button>
                         <button type="button" class="btn btn-outline-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="sr-only">Toggle Dropdown</span>
                         </button>

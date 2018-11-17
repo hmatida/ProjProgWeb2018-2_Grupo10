@@ -37,7 +37,7 @@ public class RentMovie {
     
     private boolean isPay;
     
-    private boolean isOnRent;
+    private boolean isOnRent = true;
     
     private int rating;
 
