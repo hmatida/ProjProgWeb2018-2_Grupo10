@@ -21,6 +21,7 @@ public class HomeController {
     public HomeController(MovieService movieService, PersonService personService){
         this.movieService = movieService;
         this.personService = personService;
+        
     }
 
 
@@ -37,7 +38,8 @@ public class HomeController {
     
     @GetMapping("/novo")
     public ModelAndView newPersonPage() {
-        return new ModelAndView("novo");
+        ModelAndView mod = new ModelAndView("novo");
+        return personService.novoForm(mod);
     }
     
     @GetMapping("/detalhe_filme/{idMovie}")
@@ -48,6 +50,7 @@ public class HomeController {
 
     @PostMapping("/save_person")
     public ModelAndView savePerson(@Valid Person person, BindingResult bindingResult) {
-        return new ModelAndView("novo");
+        ModelAndView mod = new ModelAndView("novo");
+        return personService.salva(mod, person, bindingResult);
     }
 }

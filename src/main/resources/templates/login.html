@@ -6,37 +6,48 @@
     <head th:replace="/fragment1 :: head"></head>
     <body>
         <div class="text-success">
-        <h1 class="text-center">Login</h1>
+            <h1 class="text-center">Login</h1>
         </div>    
 
 
         <div class="container">
             <div class="row">
                 <div class="col-sm">
-                    
+
                 </div>
                 <div class="col-sm">
-                    <form>
+                    <div th:if="${param.logout}">
+                        <div class="alert alert-success" role="alert">
+                            Usuário deslogado. Até logo!
+                        </div>
+                    </div>
+                    <div th:if="${param.error}">
+                        <div class="alert alert-danger" role="alert">
+                            Usuário e (ou) senha inválido(s)
+                        </div>
+                    </div>
+                    <form method="post" th:action="@{/login}">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            <label for="exampleInputEmail1">E-mail</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="username" min="4" required="required" placeholder="Enter email">
+                                <small id="emailHelp" class="form-text text-muted" >Insira seu e-mail cadastrado</small>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            <label for="exampleInputPassword1">Senha</label>
+                            <input type="password" required="required" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                         </div>
-                        <div class="form-group form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                        </div>
-                   
-                        <button type="button" class="btn btn-outline-success">Salva</button>
-                        <small> <a href="/novo">Cadastra-se</a> </small>
+
+                        <button type="submit" class="btn btn-outline-success">Login</button>
+                        <a 
+                            th:href="@{/novo}" 
+                            class="btn btn-outline-success" 
+                            role="button" aria-pressed="true">
+                            Novo usuário
+                        </a>
                     </form>
                 </div>
                 <div class="col-sm">
-                    
+
                 </div>
             </div>
         </div>

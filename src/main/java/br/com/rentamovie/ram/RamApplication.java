@@ -2,12 +2,16 @@ package br.com.rentamovie.ram;
 
 import br.com.rentamovie.ram.model.entities.Genre;
 import br.com.rentamovie.ram.model.entities.Movie;
+import br.com.rentamovie.ram.model.entities.Person;
 import br.com.rentamovie.ram.model.repositories.GenreRepo;
 import br.com.rentamovie.ram.model.repositories.MovieRepo;
+import br.com.rentamovie.ram.model.repositories.PersonRepo;
+import java.util.Calendar;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @SpringBootApplication
 public class RamApplication {
@@ -17,13 +21,26 @@ public class RamApplication {
     }
 
     @Bean
-    CommandLineRunner init(MovieRepo movieRepo, GenreRepo genreRepo) {
+    CommandLineRunner init(MovieRepo movieRepo, GenreRepo genreRepo, PersonRepo personRepo, 
+                PasswordEncoder passwordEncoder) {
         return args -> {
-            popula(movieRepo, genreRepo);
+            popula(movieRepo, genreRepo, personRepo, passwordEncoder);
         };
     }
 
-    public void popula(MovieRepo movieRepo, GenreRepo genreRepo) {
+    public void popula(MovieRepo movieRepo, GenreRepo genreRepo, PersonRepo personRepo, 
+            PasswordEncoder passwordEncoder) {
+        if (personRepo.findPersonByEmail("admin@admin.com") == null){
+            Person p = new Person();
+            p.setCpf("admin");
+            p.setEmail("admin@admin.com");
+            p.setName("admin");
+            p.setLastName("admin");
+            p.setPassword(passwordEncoder.encode("123456"));
+            p.setBirthday(Calendar.getInstance());
+            personRepo.save(p);
+        }
+        
         if (genreRepo.count() == 0) {
             Genre genre = new Genre();
             genre.setName("Ação");

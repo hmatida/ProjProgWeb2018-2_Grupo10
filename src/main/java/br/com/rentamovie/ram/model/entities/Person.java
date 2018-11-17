@@ -3,13 +3,13 @@ package br.com.rentamovie.ram.model.entities;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.util.Calendar;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
-import org.hibernate.validator.constraints.br.CPF;
+import javax.validation.constraints.NotNull;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "person")
-public class Person implements Serializable{
+public class Person implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,17 +17,20 @@ public class Person implements Serializable{
 
     @Column(length = 80, unique = false, nullable = false)
     @NotBlank(message = "Primeiro nome não pode ficar em branco.")
+    @NotNull(message = "Primeiro nome não pode ficar em branco.")
     private String name;
 
     @Column(length = 80, unique = false, nullable = false)
     @NotBlank(message = "Sobrenome não pode ficar em branco.")
     private String lastName;
 
-    @NotBlank(message = "Data de nascimento é obrigaório.")
+    @NotNull(message = "Data de nascimento é obrigaório.")
+    @Column
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Calendar birthday;
 
-    @Column(length = 11, unique = true, nullable = false)
-//    @CPF(message = "CPF inválido")
+    @Column(length = 20, unique = true, nullable = false)
+    @NotNull(message = "CPF é obrigatório.")
     private String cpf;
 
     @Column(length = 100, unique = true, nullable = false)
@@ -40,8 +43,8 @@ public class Person implements Serializable{
     private String password;
 
     private boolean isActive = true;
-    
-    private ProfileEnum profile;
+
+    private ProfileEnum profile = ProfileEnum.ROLE_USER;
 
     public Long getId_person() {
         return id_person;
@@ -122,5 +125,5 @@ public class Person implements Serializable{
     public void setProfile(ProfileEnum profile) {
         this.profile = profile;
     }
-    
+
 }
