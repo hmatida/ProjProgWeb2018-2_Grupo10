@@ -22,6 +22,8 @@ public class HomeController {
    
     private final ToRentService toRent;
     
+    private String userNameContext = "";
+    
     public HomeController(MovieService movieService, PersonService personService,
                             ToRentService toRent){
         this.movieService = movieService;
@@ -34,9 +36,9 @@ public class HomeController {
     @GetMapping("/")
     public ModelAndView start() {
         ModelAndView mod = new ModelAndView("index");
-        String userName =  SecurityContextHolder.getContext()
+        this.userNameContext =  SecurityContextHolder.getContext()
                 .getAuthentication().getName();
-        return movieService.operation(mod, userName);
+        return movieService.operation(mod, userNameContext);
     }
 
     @GetMapping("/login")
@@ -54,10 +56,14 @@ public class HomeController {
     public ModelAndView movieDetails(@PathVariable("idMovie")Long id_movie) {
         ModelAndView mod = new ModelAndView("detalhe_filme");
         
-        String userName =  SecurityContextHolder.getContext()
-                .getAuthentication().getName();
-        
-        return movieService.movieById(mod, id_movie, userName);
+        return movieService.movieById(mod, id_movie, userNameContext);
+    }
+    
+    @GetMapping("/modify_person/{idPerson}")
+    public ModelAndView editPerson(@PathVariable("idPerson")Long id_person){
+        ModelAndView mod = new ModelAndView("person_edit");
+        mod = movieService.preparePass(mod, userNameContext);
+        return personService.getPersonById(mod, id_person);
     }
     
     @GetMapping("/alugar/{idMovie}")
@@ -70,6 +76,13 @@ public class HomeController {
     @PostMapping("/save_person")
     public ModelAndView savePerson(@Valid Person person, BindingResult bindingResult) {
         ModelAndView mod = new ModelAndView("novo");
+        return personService.salva(mod, person, bindingResult);
+    }
+    
+    @PostMapping("/edit_person")
+    public ModelAndView editPerson(@Valid Person person, BindingResult bindingResult) {
+        ModelAndView mod = new ModelAndView("person_edit");
+        mod = movieService.preparePass(mod, userNameContext);
         return personService.salva(mod, person, bindingResult);
     }
 }

@@ -36,26 +36,30 @@ public class PersonService {
             BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             modelAndView.addObject("person", person);
-        } else if (personRepo.findPersonByEmail(person.getEmail()) != null) {
+        } else if (personRepo.findPersonByEmail(person.getEmail()) != null && person.getId_person() == null) {
             String erro = "Esse e-mail já está sendo usado por outro usuário.";
             modelAndView.addObject("person", person);
             modelAndView.addObject("erro", erro);
-            System.out.println("Entrou errado...");
         } else {
             try {
                 person.setPassword(passwordEncoder.encode(person.getPassword()));
                 personRepo.save(person);
                 String success = "Usuário " + person.getName() + " salvo com sucesso!";
                 modelAndView.addObject("success", success);
-                System.out.println("Entrou errado...");
             } catch (Exception e) {
                 String erro = "Erro ao salvar usuário.";
-                System.out.println(e);
                 modelAndView.addObject("erro", erro);
                 modelAndView.addObject("person", person);
             }
         }
         return modelAndView;
+    }
+    
+    public ModelAndView getPersonById(ModelAndView mod, Long idPerson){
+        Person p = personRepo.findById(idPerson).get();
+        p.setPassword(null);
+        mod.addObject("person", p);
+        return mod;
     }
 
 }

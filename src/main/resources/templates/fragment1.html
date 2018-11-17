@@ -53,12 +53,12 @@
                 <ul class="navbar-nav justify-content-end">
                     <div class="btn btn-group dropleft">
                         <button type="button" class="btn btn-outline-success">Meus Filmes  <span class="badge badge-light" th:text="${moviesNumber}"></span></button>
-                        <button type="button" class="btn btn-outline-success" th:text="${user.name}"></button>
+                        <button type="button" class="btn btn-outline-success" th:text="${userLoged.name}"></button>
                         <button type="button" class="btn btn-outline-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="sr-only">Toggle Dropdown</span>
                         </button>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Meus dados</a>
+                            <a class="dropdown-item" th:href="@{/modify_person/{idPerson}(idPerson=${userLoged.id_person})}">Meus dados</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" th:href="@{/logout}">Sair</a>
                         </div>

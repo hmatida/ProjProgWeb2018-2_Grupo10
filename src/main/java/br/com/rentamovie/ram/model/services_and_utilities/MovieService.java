@@ -11,10 +11,8 @@ import br.com.rentamovie.ram.model.entities.RentMovie;
 import br.com.rentamovie.ram.model.repositories.MovieRepo;
 import br.com.rentamovie.ram.model.repositories.PersonRepo;
 import br.com.rentamovie.ram.model.repositories.RentMovieRepo;
-import java.lang.annotation.Annotation;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
@@ -53,7 +51,7 @@ public class MovieService{
         return preparePass(modelAndView, userName);
     }
     
-    private ModelAndView preparePass(ModelAndView mod, String userName){
+    public ModelAndView preparePass(ModelAndView mod, String userName){
         
         Person person  = personRepo.findPersonByEmail(userName);
         List<RentMovie> rentMovies = new ArrayList<>();
@@ -64,7 +62,7 @@ public class MovieService{
         if (!rentMovies.isEmpty()){
             movies = rentMovies.size();
         }
-        mod.addObject("user", person);
+        mod.addObject("userLoged", person);
         mod.addObject("moviesNumber", movies.toString());
         
         return mod;
