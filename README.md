@@ -9,7 +9,7 @@
 	*Murilo Marques
 	*Hernane Matida -> Desenvolvimento back-end e integração com o front-end.
 
-Tecnologias:
+## Tecnologias:
 
 	Projeto em Spring Boot com maven para importação de bibliotecas.
 	Banco de dados PostgreSQL.
@@ -21,7 +21,7 @@ Tecnologias:
 		
 	O arquivo "/src/main/java/br/com/rentamovie/ram/RamApplication.java" trata-se da classe main que executará a apicação quando compilada.
 
-Acesso ao sistema após compilação:
+## Acesso ao sistema após compilação (via browser)
 
 	* Usuário padrão default:
 
