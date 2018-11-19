@@ -82,4 +82,18 @@
             </div>
         </div>
     </body>
+    <script>
+        var password = document.getElementById('exampleInputPassword1'),
+                confirm_password = document.getElementById('exampleInputPassword');
+
+        function validatePassword() {
+            if (password.value !== confirm_password.value) {
+                confirm_password.setCustomValidity("Senhas não batem!");
+            } else {
+                confirm_password.setCustomValidity('');
+            }
+        }
+        password.oninput = validatePassword;
+        confirm_password.oninput = validatePassword;
+    </script>
 </html>
