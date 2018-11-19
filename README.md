@@ -1,8 +1,8 @@
-Repositório Grupo10 Prog Web UFMS
+## Repositório Grupo10 Prog Web UFMS
 
-Grupo: 10
+## Grupo: 10
 
-Acadêmicos:
+## Acadêmicos:
 
 	*Thyago Henrique Araújo oliveira
 	*Thiago Conte -> Desenvolvimento front-end e formulários.
@@ -31,7 +31,8 @@ Acesso ao sistema após compilação:
 
 		123456
 
-Organização do repositório:
+
+## Organização do repositório:
 
 	Back-end:
 	
@@ -46,4 +47,3 @@ Organização do repositório:
 			/templates/ -> Arquivos em html das views.
 			
 			application.properties -> Arquivo de configuração para acesso ao banco de dados.
-
