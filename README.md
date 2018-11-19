@@ -1,15 +1,15 @@
-Repositório Grupo10 Prog Web UFMS
+# Repositório Grupo10 Prog Web UFMS
 
-Grupo: 10
+ Grupo: 10
 
-Acadêmicos:
+## Acadêmicos:
 
 	*Thyago Henrique Araújo oliveira
 	*Thiago Conte -> Desenvolvimento front-end e formulários.
 	*Murilo Marques
 	*Hernane Matida -> Desenvolvimento back-end e integração com o front-end.
 
-Tecnologias:
+## Tecnologias:
 
 	Projeto em Spring Boot com maven para importação de bibliotecas.
 	Banco de dados PostgreSQL.
@@ -21,7 +21,7 @@ Tecnologias:
 		
 	O arquivo "/src/main/java/br/com/rentamovie/ram/RamApplication.java" trata-se da classe main que executará a apicação quando compilada.
 
-Acesso ao sistema após compilação:
+## Acesso ao sistema após compilação (via browser)
 
 	* Usuário padrão default:
 
@@ -31,13 +31,14 @@ Acesso ao sistema após compilação:
 
 		123456
 
-Organização do repositório:
 
-	Back-end:
+## Organização do repositório:
+
+Back-end:
 	
 		/src/main/java/br/com/rentamovie/ram/ -> Contém os códigos fontes em java para o back-end da aplicação, tais como models (entities, services e repositories) e controllers.
 		
-	Front-end:
+Front-end:
 	
 		/src/main/resources/ -> Arquivos das views e suas estruturas como scripts, estilos e imagens.
 		
@@ -46,4 +47,3 @@ Organização do repositório:
 			/templates/ -> Arquivos em html das views.
 			
 			application.properties -> Arquivo de configuração para acesso ao banco de dados.
-
