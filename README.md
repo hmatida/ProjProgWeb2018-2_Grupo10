@@ -19,7 +19,7 @@ Tecnologias:
 		spring.datasource.username=aqui vai o usuário no postgres (geralemente postgres em instalação default)
 		spring.datasource.password=senha do postgres colocada no ato da instalação.
 		
-	O arquivo "/src/main/java/br/com/rentamovie/ram/RamApplication.java" trata-se da classe main que executará a apicação quando 		compilada.
+	O arquivo "/src/main/java/br/com/rentamovie/ram/RamApplication.java" trata-se da classe main que executará a apicação quando compilada.
 
 Acesso ao sistema após compilação:
 
@@ -35,13 +35,15 @@ Organização do repositório:
 
 	Back-end:
 	
-		/src/main/java/br/com/rentamovie/ram/ -> Contém os códigos fontes em java para o back-end da aplicação, tais como models 		(entities, services e repositories) e controllers.
+		/src/main/java/br/com/rentamovie/ram/ -> Contém os códigos fontes em java para o back-end da aplicação, tais como models (entities, services e repositories) e controllers.
 		
 	Front-end:
 	
 		/src/main/resources/ -> Arquivos das views e suas estruturas como scripts, estilos e imagens.
 		
-			/src/main/resources/static/ -> Scripts, imagens e folha de estilo personalizada.
+			/static/ -> Scripts, imagens e folha de estilo personalizada.
 			
-			/src/main/resources/templates/ -> Arquivos em html das views.
+			/templates/ -> Arquivos em html das views.
+			
+			application.properties -> Arquivo de configuração para acesso ao banco de dados.
 
