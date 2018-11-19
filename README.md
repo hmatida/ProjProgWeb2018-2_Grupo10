@@ -1,6 +1,6 @@
 ## Repositório Grupo10 Prog Web UFMS
 
-## Grupo: 10
+ Grupo: 10
 
 ## Acadêmicos:
 
@@ -34,11 +34,11 @@ Acesso ao sistema após compilação:
 
 ## Organização do repositório:
 
-	Back-end:
+Back-end:
 	
 		/src/main/java/br/com/rentamovie/ram/ -> Contém os códigos fontes em java para o back-end da aplicação, tais como models (entities, services e repositories) e controllers.
 		
-	Front-end:
+Front-end:
 	
 		/src/main/resources/ -> Arquivos das views e suas estruturas como scripts, estilos e imagens.
 		
