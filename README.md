@@ -4,9 +4,9 @@
 
 ## Acadêmicos:
 
-	*Thyago Henrique Araújo oliveira
+	*Thyago Henrique Araújo oliveira ->Testes
 	*Thiago Conte -> Desenvolvimento front-end e formulários.
-	*Murilo Marques
+	*Murilo Marques -> Atualização dos diagramas 
 	*Hernane Matida -> Desenvolvimento back-end e integração com o front-end.
 
 ## Tecnologias:
