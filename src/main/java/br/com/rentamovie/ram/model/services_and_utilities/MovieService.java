@@ -55,7 +55,7 @@ public class MovieService{
         
         Person person  = personRepo.findPersonByEmail(userName);
         List<RentMovie> rentMovies = new ArrayList<>();
-        rentMovies.addAll(rentMovieRepo.moviesOnRentedByPerson(person));
+        rentMovies.addAll(rentMovieRepo.moviesOnRentedByPersonOnTrue(person));
        
         Integer movies = 0;
         

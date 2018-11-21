@@ -69,8 +69,16 @@ public class HomeController {
     @GetMapping("/alugar/{idMovie}")
     public ModelAndView alugar(@PathVariable("idMovie") Long id_movie){
         ModelAndView mod = new ModelAndView("alugado");
-        return toRent.rent(mod,SecurityContextHolder.getContext()
+        mod = toRent.rent(mod,SecurityContextHolder.getContext()
                 .getAuthentication().getName(), id_movie);
+        return movieService.preparePass(mod, userNameContext);
+    }
+    
+    @GetMapping("/my_movies")
+    public ModelAndView myMovies(){
+        ModelAndView mod = new ModelAndView("alugado");
+        mod=movieService.preparePass(mod, userNameContext);
+        return toRent.myMovies(mod, userNameContext);
     }
 
     @PostMapping("/save_person")

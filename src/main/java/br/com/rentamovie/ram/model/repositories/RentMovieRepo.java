@@ -18,6 +18,9 @@ import org.springframework.data.repository.query.Param;
  */
 public interface RentMovieRepo extends CrudRepository<RentMovie, Long> {
 
+    @Query("SELECT mvs FROM RentMovie mvs WHERE mvs.person=:person and isOnRent=true ORDER BY mvs.expDate ASC")
+    public List<RentMovie> moviesOnRentedByPersonOnTrue(@Param("person")Person person);
+    
     @Query("SELECT mvs FROM RentMovie mvs WHERE mvs.person=:person ORDER BY mvs.expDate ASC")
-    public List<RentMovie> moviesOnRentedByPerson(@Param("person")Person person);
+    public List<RentMovie> allMoviesOnRentedByPerson(@Param("person")Person person);
 }

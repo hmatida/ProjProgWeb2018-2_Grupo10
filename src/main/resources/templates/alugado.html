@@ -5,49 +5,69 @@
 
     <head th:replace="/fragment1 :: head"></head>
     <header th:replace="/fragment1 :: header"></header>
-    
+
     <body>
-        
+
         <h1>Meus Filmes</h1>
 
+        <div th:replace="/fragment1 :: erro"></div>
+        <div th:if="${erro} == null">
+            <div class="container-fluid" th:if="${mensagem} != null">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div th:text="${mensagem}" class="alert alert-success" role="alert">
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!--Iteração com a lista de filmes disponíveis-->
             <div class="filmeBlock" th:each = "f : ${movies}">
                 <div class="row" >
                     <div class="col-md-3 offset-1">
-                        <img th:src="${f.imageUrl}" alt="Generic placeholder image">
+                        <img th:src="${f.movie.imageUrl}" alt="Generic placeholder image">
                     </div>
                     <div class="col-sm-8">
                         <div class="row">
                             <div class="col-sm-12">
-                                <h4 class="mt-0" th:text="${f.name}"></h4>
+                                <h4 class="mt-0" th:text="${f.movie.name}"></h4>
                             </div>
                             <div class="col-sm-12">
-                                <div class="rating" th:each="i : ${#numbers.sequence(1,f.rating)}">
-                                    <i class="fas fa-star iconIndex"></i>
+                                <div class="rating">
+                                    <input type="radio" id="star10" name="rating" value="10" /><label for="star10"></label>
+                                    <input type="radio" id="star9" name="rating" value="9" /><label for="star9"></label>
+                                    <input type="radio" id="star8" name="rating" value="8" checked="checked" /><label for="star8"></label>
+                                    <input type="radio" id="star7" name="rating" value="7" /><label for="star7"></label>
+                                    <input type="radio" id="star6" name="rating" value="6" /><label for="star6" ></label>
                                 </div>
                             </div>
 
                             <div class="col-sm-12">
-                                <p th:text="${f.year}"></p>
-                                <p ht:text="${f.genre.name}"></p>
+                                <p th:text="${f.movie.year}"></p>
+                                <p ht:text="${f.movie.genre.name}"></p>
                             </div>
 
                             <div class="col-sm-10">
-                                <p class="prospect" th:text="${f.prospect}"></p>
+                                <p class="prospect" th:text="${f.movie.prospect}"></p>
                             </div>
                             <div class="col-sm-2"></div>
                             <div class="col-sm-10">
-                                <p class="actors" th:text="'Elenco: '+ ${f.actors}"></p>
-                                <p class="actors" th:text="'Direção: '+${f.director}"></p>
+                                <p class="actors" th:text="'Elenco: '+ ${f.movie.actors}"></p>
+                                <p class="actors" th:text="'Direção: '+${f.movie.director}"></p>
                             </div>
                             <div class="col-sm-2"></div>
                             <div class="col-sm-12">
                                 <div class="filmBottons">                                  
                                     <a 
-                                        th:href="@{/detalhe_filme/{idMovie}(idMovie=${f.id_movie})}" 
+                                        th:href="@{/detalhe_filme/{idMovie}(idMovie=${f.movie.id_movie})}" 
                                         class="btn btn-outline-success" 
                                         role="button" aria-pressed="true">
-                                        Trailer
+                                        Assistir
+                                    </a>
+                                     <a 
+                                        th:href="@{/}" 
+                                        class="btn btn-outline-success" 
+                                        role="button" aria-pressed="true">
+                                        Voltar
                                     </a>
                                 </div>
                             </div>
@@ -55,7 +75,7 @@
                     </div>
                 </div>
             </div>
-
+        </div>
     </body>
-    
+
 </html>

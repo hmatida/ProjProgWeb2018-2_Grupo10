@@ -11,7 +11,9 @@ import br.com.rentamovie.ram.model.entities.RentMovie;
 import br.com.rentamovie.ram.model.repositories.MovieRepo;
 import br.com.rentamovie.ram.model.repositories.PersonRepo;
 import br.com.rentamovie.ram.model.repositories.RentMovieRepo;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
@@ -36,11 +38,14 @@ public class ToRentService {
     
     public ModelAndView rent(ModelAndView mod, String userName, Long idMovie){
         
-        Calendar today = Calendar.getInstance();
-        today.add(Calendar.DATE, 6);
-        
         Person person = personRepo.findPersonByEmail(userName);
         Movie movie = movieRepo.findById(idMovie).get();
+        
+        List<RentMovie> moviesRent = new ArrayList<>();
+        moviesRent.addAll(rentMovieRepo.moviesOnRentedByPersonOnTrue(person));
+
+        Calendar today = Calendar.getInstance();
+        today.add(Calendar.DATE, 6);
         
         RentMovie rMovie = new RentMovie();
         rMovie.setPerson(person);
@@ -51,16 +56,22 @@ public class ToRentService {
         rentMovieRepo.save(rMovie);
         
         String mensagem = "O filme "+movie.getName()+" alugado com sucesso!";
-        
         mod.addObject("mensagem", mensagem);
-        
+        mod.addObject("movies", rentMovieRepo.moviesOnRentedByPersonOnTrue(person));
         return mod;
     }
     
     public ModelAndView myMovies(ModelAndView mod, String userName){
+        List<RentMovie> moviesRented = new ArrayList<>();
+        Person person = personRepo.findPersonByEmail(userName);
+        moviesRented.addAll(rentMovieRepo.moviesOnRentedByPersonOnTrue(person));
         
-        
-        
+        if(moviesRented.isEmpty()){
+            String mensagem1 = "Ainda não existem filmes alugados!";
+            mod.addObject("erro", mensagem1);
+        } else {
+            mod.addObject("movies", moviesRented);
+        }
         return mod;
     }
 }

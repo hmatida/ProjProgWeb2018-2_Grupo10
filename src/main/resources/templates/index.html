@@ -62,13 +62,11 @@
                             <div class="col-sm-2"></div>
                             <div class="col-sm-12">
                                 <div class="filmBottons">
-                                    <a 
-                                            class="btn btn-outline-success"
-                                            role="button" aria-pressed="true"
-                                            data-toggle="tooltip" 
-                                            data-placement="top" 
-                                            title="Alugue já!" 
-                                            th:text="'R$ '+${#numbers.formatDecimal(f.rentPrice, 0, 'POINT', 2, 'COMMA')}">
+                                    <a
+                                        role="button"
+                                        class="btn btn-outline-success"                                      
+                                        th:text="'R$ '+${#numbers.formatDecimal(f.rentPrice, 0, 'POINT', 2, 'COMMA')}"
+                                        th:href="@{/alugar/{idMovie}(idMovie=${f.id_movie})}">
                                     </a>
                                     <a 
                                         th:href="@{/detalhe_filme/{idMovie}(idMovie=${f.id_movie})}" 
@@ -83,12 +81,39 @@
                 </div>
             </div>
 
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Confirmação</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <a class="btn btn-outline-success" 
+                               role="button"  aria-pressed="true">Sim</a>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
     </body>
-    <script>
-        $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
-            $('#element').tooltip('toggleEnabled')
-        })
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        function modalRemover(id) {
+            $("#myModal").modal('show');
+            var recipient = id
+            var modal = $("#myModal")
+            //modal.find('.modal-title').text('New message to ' + recipient)
+            modal.find('.modal-body p').text(recipient)
+            modal.find('.modal-footer a').text(recipient)
+        }
+//        th:attr="onclick = ${ 'modalRemover(' + f.id_movie +')' }" 
+        /*]]>*/
     </script>
-
 </html>
