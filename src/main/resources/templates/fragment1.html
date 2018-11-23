@@ -12,83 +12,77 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
 
-        <script th:src="@{/js/script.js}"
-        <script rel="stylesheet" th:href="@{/css/style.css}"></script>
-            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-            <link rel="stylesheet" th:href="@{/css/style.css}">
-            <!--<script type="text/javascript" th:href="@{/js/script.js}"></script>-->
+        <script th:src="@{/js/script.js}"></script>
+        <script rel="stylesheet" th:src="@{/css/style.css}"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <link rel="stylesheet" th:href="@{/css/style.css}">
+        <!--<script type="text/javascript" th:href="@{/js/script.js}"></script>-->
 
-            <title>Rent A Movie</title>
-        </head>
-        <header th:fragment="header">
+        <title>Rent A Movie</title>
+    </head>
+    <header th:fragment="header">
 
-            <script th:inline="javascript">
-                /*<![CDATA[*/
-                $(document).ready(function () {
-                    $('.combobox').combobox();
-                });
-                /*]]>*/
-            </script>
+        <script th:inline="javascript">
+            /*<![CDATA[*/
+            $(document).ready(function () {
+                $('.combobox').combobox();
+            });
+            /*]]>*/
+        </script>
 
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" th:href="@{/}">Home</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" th:href="@{/}">Home</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        <!--Combox teste-->
-                        <form method="post" class="form-inline my-2 my-lg-0" th:action="@{/findmovie}" th:object="${pass}">
-                            <select class="combobox form-control mr-sm-2" placeholder="Pesquisar" name="id_movie">
-                                <option></option>
-                                <option th:each="m : ${moviesFilter}" th:value="${m.id_movie}" th:text="${m.name}"></option>
-         
-                            </select>
-                             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                        </form>
-                    </ul>
-                    <ul class="navbar-nav justify-content-end">
-                        <div class="btn btn-group dropleft">
-                            <a role="button" class="btn btn-outline-success" aria-pressed="true" th:href="@{/my_movies}">Meus Filmes  <span class="badge badge-light" th:text="${moviesNumber}"></span></a>
-                            <button type="button" class="btn btn-outline-success" th:text="${userLoged.name}"></button>
-                            <button type="button" class="btn btn-outline-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="sr-only">Toggle Dropdown</span>
-                            </button>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" th:href="@{/modify_person/{idPerson}(idPerson=${userLoged.id_person})}">Meus dados</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" th:href="@{/logout}">Sair</a>
-                            </div>
-                        </div>
-                    </ul>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="navbar-nav mr-auto">
+                    <!--Combox teste-->
+                    <form method="post" class="form-inline my-2 my-lg-0" th:action="@{/findmovie}" th:object="${pass}">
+                        <select class="combobox form-control mr-sm-2" name="id_movie">
+                            <option value="">Pesquisar filme</option>
+                            <option th:each="m : ${moviesFilter}" th:value="${m.id_movie}" th:text="${m.name}"></option>
+
+                        </select>
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
                 </div>
-            </nav>
-        </header>
-
-        <div th:fragment="erro">
-            <div class="container-fluid" th:if="${erro} != null">
-                <div class="row">
-                    <div class="col-sm-4 offset-3">
-                        <div th:text="${erro}" class="alert alert-danger" role="alert">
+                <div class="navbar-nav justify-content-end">
+                    <div class="btn btn-group dropleft">
+                        <a role="button" class="btn btn-outline-success" aria-pressed="true" th:href="@{/my_movies}">Meus Filmes  <span class="badge badge-light" th:text="${moviesNumber}"></span></a>
+                        <button type="button" class="btn btn-outline-success" th:text="${userLoged.name}"></button>
+                        <button type="button" class="btn btn-outline-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" th:href="@{/modify_person/{idPerson}(idPerson=${userLoged.id_person})}">Meus dados</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" th:href="@{/logout}">Sair</a>
                         </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <a 
-                            th:href="@{/}" 
-                            class="btn btn-outline-success" 
-                            role="button" aria-pressed="true">
-                            Voltar
-                        </a>
                     </div>
                 </div>
             </div>
+        </nav>
+    </header>
 
+    <div th:fragment="erro">
+        <div class="container-fluid" th:if="${erro} != null">
+            <div class="row">
+                <div class="col-sm-4 offset-3">
+                    <div th:text="${erro}" class="alert alert-danger" role="alert">
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <a 
+                        th:href="@{/}" 
+                        class="btn btn-outline-success" 
+                        role="button" aria-pressed="true">
+                        Voltar
+                    </a>
+                </div>
+            </div>
         </div>
-
-        <body>
-
-        </body>
-
-    </html>
+    </div>
+</html>
