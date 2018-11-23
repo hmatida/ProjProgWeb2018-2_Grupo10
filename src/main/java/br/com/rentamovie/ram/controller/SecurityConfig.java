@@ -17,6 +17,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 public class SecurityConfig {
     
+    
+    /**
+     * Bean que encripta a senha para salvamento e veiricação do Spring Security.
+     * @return BCryptPasswordEncoder.
+     */
     @Bean
     public PasswordEncoder passswordEncoder(){
         return new BCryptPasswordEncoder();

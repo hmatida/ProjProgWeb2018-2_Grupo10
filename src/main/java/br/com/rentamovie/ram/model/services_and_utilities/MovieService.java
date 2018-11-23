@@ -20,7 +20,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- *
+ * Realiza o CRUD para MOVIE.
  * @author hernanematida
  */
 @Service
@@ -35,12 +35,23 @@ public class MovieService{
     @Autowired
     private RentMovieRepo rentMovieRepo;
     
+    
+    /**
+     * Recebe a view que será exibida pelo controller e o login do usuário logado, adiciona
+     * os Movies pertinentes ao index para apresentação da página.
+     * @return ModelAndView
+     */
     public ModelAndView operation(ModelAndView modelAndView, String userName){
         this.verifyMovies(userName);
         modelAndView.addObject("movies", movieRepo.findAll());  
         return preparePass(modelAndView, userName);
     }
-    
+    /**
+     * Recebe a view que será exibida pelo controller, login do usuário logado,
+     * e id de Movie e adiciona o objeto Movie referente ao id passado como
+     * parâmetro.
+     * @return ModelAndView.
+     */
     public ModelAndView movieById(ModelAndView modelAndView, Long idMovie, String userName){
         try {
             Movie movie = movieRepo.findById(idMovie).get();
@@ -54,7 +65,11 @@ public class MovieService{
         
         return preparePass(modelAndView, userName);
     }
-    
+    /**
+     * Recebe a view que será exibida pelo controller e o usuário logado, adiciona
+     * os objetos pertinentes a barra de menus do header para apresentação da página.
+     * @return ModelAndView
+     */
     public ModelAndView preparePass(ModelAndView mod, String userName){
         
         Person person  = personRepo.findPersonByEmail(userName);
@@ -74,11 +89,21 @@ public class MovieService{
         mod.addObject("pass", pass);
         return mod;
     }
-    
+    /**
+     * Método para pegar todos os nomes dos filmes para ser usado na barra de
+     * navegação no item search como autocomplete.
+     * @return List<AjaxClassPass>
+     */
     public List<AjaxClassPass> moviesAjax(){
         return movieRepo.moviesAjax();
     }
     
+    /**
+     *Método que veririca e atualiza no banco todos os filmes que espiraram o prazo de 
+     *locação do usuário passado como parâmetro. Caso o filmes alugado já 
+     * esteja com o prazo de locação expirado, ele o seta o atributo isOnRent como false.
+     * @return void.
+     */
     private void verifyMovies(String userName){
         Calendar now = Calendar.getInstance();
         Person p = personRepo.findPersonByEmail(userName);

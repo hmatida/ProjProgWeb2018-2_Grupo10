@@ -17,6 +17,11 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface MovieRepo extends CrudRepository<Movie, Long> {
     
+    /**
+     * Pesquisa uma lista de AjaxPassClass para todos os filmes.
+     * Método para ser usado no searchMovie no header das views.
+     * @return List AjaxClassPass
+     */
     @Query("SELECT new br.com.rentamovie.ram.model.entities.AjaxClassPass(m.id_movie, m.name) FROM Movie m")
     public List<AjaxClassPass> moviesAjax();
 }

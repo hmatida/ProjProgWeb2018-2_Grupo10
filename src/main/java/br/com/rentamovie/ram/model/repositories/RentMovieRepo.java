@@ -18,9 +18,20 @@ import org.springframework.data.repository.query.Param;
  */
 public interface RentMovieRepo extends CrudRepository<RentMovie, Long> {
 
+    /**
+     * Pesquisa no banco de dados todos os filmes alugados não expirados 
+     * pelo usuário passado como parâmetro.
+     * @return List RentMovie
+     */
     @Query("SELECT mvs FROM RentMovie mvs WHERE mvs.person=:person and isOnRent=true ORDER BY mvs.expDate ASC")
     public List<RentMovie> moviesOnRentedByPersonOnTrue(@Param("person")Person person);
     
+    
+    /**
+     * Pesquisa no banco de dados todos os filmes alugados expirados ou não
+     * pelo usuário passado como parâmetro.
+     * @return List RentMovie
+     */
     @Query("SELECT mvs FROM RentMovie mvs WHERE mvs.person=:person ORDER BY mvs.expDate ASC")
     public List<RentMovie> allMoviesOnRentedByPerson(@Param("person")Person person);
 }

@@ -19,7 +19,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- *
+ *Classe de para aluguel de filme pelo usuário cadastrado.
  * @author hernanematida
  */
 

@@ -16,6 +16,11 @@ import org.springframework.data.repository.query.Param;
  */
 public interface GenreRepo extends CrudRepository<Genre, Long>{
     
+    /**
+     * Retorna o objeto Genre referente ao nome do Genre passado
+     * como parâmetro.
+     * @return Genre.
+     */
     @Query("SELECT g FROM Genre g WHERE g.name like :nome")
     public Genre findGenreByName(@Param("nome")String name);
     

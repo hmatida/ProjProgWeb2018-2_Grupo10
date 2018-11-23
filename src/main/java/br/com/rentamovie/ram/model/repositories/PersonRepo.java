@@ -15,7 +15,11 @@ import org.springframework.data.repository.query.Param;
  * @author hernanematida
  */
 public interface PersonRepo extends CrudRepository<Person, Long> {
-    
+    /**
+     * Retorna o objeto Person com base no nome de login passado como
+     * parâmetro.
+     * @return Person
+     */
     @Query("SELECT p FROM Person p WHERE p.email like :email")
     public Person findPersonByEmail(@Param("email") String email);
 }
