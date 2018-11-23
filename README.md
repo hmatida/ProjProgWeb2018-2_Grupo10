@@ -1,6 +1,9 @@
-# Repositório Grupo10 Prog Web UFMS
+# Rent A Movie
 
- Grupo: 10
+## Grupo: 10
+
+Sistema de locação de filmes.
+Projeto avaliativo da disciplina de Programação para Web 2018-2 da UFMS.
 
 ## Acadêmicos:
 
