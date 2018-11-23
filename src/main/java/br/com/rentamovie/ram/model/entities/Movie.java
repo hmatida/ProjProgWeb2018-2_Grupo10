@@ -5,6 +5,7 @@
  */
 package br.com.rentamovie.ram.model.entities;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,7 +20,7 @@ import javax.persistence.ManyToOne;
  */
 
 @Entity
-public class Movie {
+public class Movie implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

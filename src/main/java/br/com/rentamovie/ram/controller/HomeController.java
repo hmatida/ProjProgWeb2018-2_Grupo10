@@ -1,5 +1,6 @@
 package br.com.rentamovie.ram.controller;
 
+import br.com.rentamovie.ram.model.entities.AjaxClassPass;
 import br.com.rentamovie.ram.model.entities.Person;
 import br.com.rentamovie.ram.model.services_and_utilities.MovieService;
 import br.com.rentamovie.ram.model.services_and_utilities.PersonService;
@@ -92,5 +93,11 @@ public class HomeController {
         ModelAndView mod = new ModelAndView("person_edit");
         mod = movieService.preparePass(mod, userNameContext);
         return personService.salva(mod, person, bindingResult);
+    }
+    @PostMapping("/findmovie")
+    public ModelAndView findMovie(AjaxClassPass pass){
+        ModelAndView mod = new ModelAndView("detalhe_filme");
+        mod = movieService.preparePass(mod, userNameContext);
+        return movieService.movieById(mod, pass.getId_movie(), userNameContext);
     }
 }

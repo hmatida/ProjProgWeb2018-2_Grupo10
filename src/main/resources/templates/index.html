@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="pt-br" xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.w3.org/1999/xhtml"
-      xmlns="http://www.w3.org/1999/xhtml">
+<html lang="pt-br" 
+      xmlns:th="http://www.thymeleaf.org"
+      >
 
     <head th:replace="/fragment1 :: head"></head>
     <header th:replace="/fragment1 :: header"></header>
@@ -48,7 +48,7 @@
 
                             <div class="col-sm-12">
                                 <p th:text="${f.year}"></p>
-                                <p ht:text="${f.genre.name}"></p>
+                                <p th:text="${f.genre.name}"></p>
                             </div>
 
                             <div class="col-sm-10">
@@ -103,17 +103,5 @@
                 </div>
             </div>
     </body>
-    <script th:inline="javascript">
-        /*<![CDATA[*/
-        function modalRemover(id) {
-            $("#myModal").modal('show');
-            var recipient = id
-            var modal = $("#myModal")
-            //modal.find('.modal-title').text('New message to ' + recipient)
-            modal.find('.modal-body p').text(recipient)
-            modal.find('.modal-footer a').text(recipient)
-        }
-//        th:attr="onclick = ${ 'modalRemover(' + f.id_movie +')' }" 
-        /*]]>*/
-    </script>
+   
 </html>

@@ -5,6 +5,7 @@
  */
 package br.com.rentamovie.ram.model.entities;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,7 +20,7 @@ import javax.persistence.ManyToOne;
  */
 
 @Entity
-public class RentMovie {
+public class RentMovie implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

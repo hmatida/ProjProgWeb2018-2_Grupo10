@@ -5,7 +5,10 @@
  */
 package br.com.rentamovie.ram.model.repositories;
 
+import br.com.rentamovie.ram.model.entities.AjaxClassPass;
 import br.com.rentamovie.ram.model.entities.Movie;
+import java.util.List;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 /**
@@ -14,4 +17,6 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface MovieRepo extends CrudRepository<Movie, Long> {
     
+    @Query("SELECT new br.com.rentamovie.ram.model.entities.AjaxClassPass(m.id_movie, m.name) FROM Movie m")
+    public List<AjaxClassPass> moviesAjax();
 }

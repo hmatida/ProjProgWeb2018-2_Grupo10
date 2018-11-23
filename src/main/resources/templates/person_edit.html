@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br" xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.w3.org/1999/xhtml"
-      xmlns="http://www.w3.org/1999/xhtml">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 
     <head th:replace="/fragment1 :: head"></head>
     <header th:replace="/fragment1 :: header"></header>
@@ -89,9 +87,9 @@
 
         function validatePassword() {
             if (password.value !== confirm_password.value) {
-                confirm_password.setCustomValidity("Passwords did not match. Please enter the same password in both fields.");
+                confirm_password.setCustomValidity("As senhas não conicidem!");
             } else {
-                confirm_password.setCustomValidity('');
+                confirm_password.setCustomValidity('Senhas Ok!');
             }
         }
         password.oninput = validatePassword;
