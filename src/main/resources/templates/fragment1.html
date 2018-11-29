@@ -46,13 +46,13 @@
                             <option th:each="m : ${moviesFilter}" th:value="${m.id_movie}" th:text="${m.name}"></option>
 
                         </select>
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
                     </form>
                 </div>
                 <div class="navbar-nav justify-content-end">
                     <div class="btn btn-group dropleft">
                         <a role="button" class="btn btn-outline-success" aria-pressed="true" th:href="@{/my_movies}">Meus Filmes  <span class="badge badge-light" th:text="${moviesNumber}"></span></a>
-                        <button type="button" class="btn btn-outline-success" th:text="${userLoged.name}"></button>
+                        <button type="button" class="btn btn-outline-success" ><i th:text="'  '+${userLoged.name}" class="fas fa-user"></i></button>
                         <button type="button" class="btn btn-outline-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="sr-only">Toggle Dropdown</span>
                         </button>

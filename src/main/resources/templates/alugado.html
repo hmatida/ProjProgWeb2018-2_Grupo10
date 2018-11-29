@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-br"
+      xmlns:th="http://www.thymeleaf.org"
+      >
 
     <head th:replace="/fragment1 :: head"></head>
-    <header th:replace="/fragment1 :: header"></header>
-
     <body>
+        <header th:replace="/fragment1 :: header"></header>
 
         <h1>Meus Filmes</h1>
 
@@ -62,7 +63,7 @@
                                         role="button" aria-pressed="true">
                                         Assistir
                                     </a>
-                                     <a 
+                                    <a 
                                         th:href="@{/}" 
                                         class="btn btn-outline-success" 
                                         role="button" aria-pressed="true">

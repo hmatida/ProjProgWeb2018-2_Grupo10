@@ -2,9 +2,8 @@
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 
     <head th:replace="/fragment1 :: head"></head>
-    <header th:replace="/fragment1 :: header"></header>
-    
     <body>
+        <header th:replace="/fragment1 :: header"></header>
         <div class="text-success">
             <h1 class="text-center">Meus dados</h1>
         </div>
@@ -38,22 +37,22 @@
                             </div>
                             <div class="col">
                                 <label for="exampleInputLastName">Sobrenome</label>
-                                <input type="text" class="form-control" name="lastName" th:value="${person.lastName}" id="exampleInputLastName"placeholder="Last name">
+                                <input type="text" class="form-control" name="lastName" th:value="${person.lastName}" id="exampleInputLastName" placeholder="Last name">
                             </div>
 
                         </div>
                         <div class="form-group">
                             <label for="exampleInputCPF">Nascimento</label>
-                            <input type="date" class="form-control" name="birthday" th:value="${#calendars.format(person.birthday, 'yyyy-MM-dd')}" id="exampleInputBirthday" placeholder="Birthday">
+                            <input type="date" class="form-control" name="birthday" th:value="${#calendars.format(person.birthday, 'yyyy-MM-dd')}" id="exampleInputBirthday">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputCPF">CPF</label>
-                            <input type="text" class="form-control" name="cpf" id="exampleInputCPF" th:value="${person.cpf}"pattern="([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})" placeholder="CPF">
+                            <input type="text" class="form-control" name="cpf" id="exampleInputCPF" th:value="${person.cpf}" pattern="([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})" placeholder="CPF">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">E-mail</label>
                             <input type="email" class="form-control" name="email" th:value="${person.email}" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                                <small id="emailHelp" class="form-text text-muted">Seu e-mail será o login de acesso.</small>
+                            <small id="emailHelp" class="form-text text-muted">Seu e-mail será o login de acesso.</small>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Senha</label>
@@ -79,20 +78,20 @@
                 </div>
             </div>
         </div>
-    </body>
-    <script>
-        <!--Valida senha-->
-        var password = document.getElementById('exampleInputPassword1'),
-                confirm_password = document.getElementById('exampleInputPassword');
+        <script>
+<!--Valida senha-->
+            var password = document.getElementById('exampleInputPassword1'),
+                    confirm_password = document.getElementById('exampleInputPassword');
 
-        function validatePassword() {
-            if (password.value !== confirm_password.value) {
-                confirm_password.setCustomValidity("As senhas não conicidem!");
-            } else {
-                confirm_password.setCustomValidity('Senhas Ok!');
+            function validatePassword() {
+                if (password.value !== confirm_password.value) {
+                    confirm_password.setCustomValidity("As senhas não conicidem!");
+                } else {
+                    confirm_password.setCustomValidity('Senhas Ok!');
+                }
             }
-        }
-        password.oninput = validatePassword;
-        confirm_password.oninput = validatePassword;
-    </script>
+            password.oninput = validatePassword;
+            confirm_password.oninput = validatePassword;
+        </script>
+    </body>
 </html>

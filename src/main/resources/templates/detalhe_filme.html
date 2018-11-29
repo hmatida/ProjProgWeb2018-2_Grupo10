@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
     <head th:replace="/fragment1 :: head"></head>
-    <header th:replace="/fragment1 :: header"></header>
     <body>
+        <header th:replace="/fragment1 :: header"></header>
         <div th:replace="/fragment1 :: erro"></div>        
         <div class="container-fluid" th:if="${erro} == null">
             <div class="col-sm-12">
@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="embed-responsive trailer" id="player">
-                        <iframe frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
@@ -67,8 +67,7 @@
                 </div>
             </div>
         </div>
-    </body>
-    <script th:if="${erro} == null" th:inline="javascript">
+        <script th:if="${erro} == null" th:inline="javascript">
         /*<![CDATA[*/
         // 2. This code loads the IFrame Player API code asynchronously.
         var tag = document.createElement('script');
@@ -112,4 +111,6 @@
         }
         /*]]>*/
     </script>
+    </body>
+    
 </html>
