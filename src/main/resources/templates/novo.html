@@ -85,7 +85,7 @@
             if (password.value !== confirm_password.value) {
                 confirm_password.setCustomValidity("Passwords did not match. Please enter the same password in both fields.");
             } else {
-                confirm_password.setCustomValidity('');
+                confirm_password.setCustomValidity('Senhas OK');
             }
         }
         password.oninput = validatePassword;

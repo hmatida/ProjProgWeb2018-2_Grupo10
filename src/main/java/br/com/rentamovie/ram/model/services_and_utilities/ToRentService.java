@@ -35,7 +35,11 @@ public class ToRentService {
     @Autowired
     private RentMovieRepo rentMovieRepo;
     
-    
+    /**
+     * Método que realiza o aluguel do filme conforme o usuário, film e
+     * view repassado por parâmetro.
+     * @return ModelAndView.
+     */
     public ModelAndView rent(ModelAndView mod, String userName, Long idMovie){
         
         Person person = personRepo.findPersonByEmail(userName);
@@ -61,6 +65,11 @@ public class ToRentService {
         return mod;
     }
     
+    /**
+     * Método que busca os filmes alugados dado o usuário passado por parâmetro.
+     * Inclui na view uma List com os Movies referentes ao usuário.
+     * @return ModelAndView.
+     */
     public ModelAndView myMovies(ModelAndView mod, String userName){
         List<RentMovie> moviesRented = new ArrayList<>();
         Person person = personRepo.findPersonByEmail(userName);

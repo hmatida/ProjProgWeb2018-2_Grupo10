@@ -78,20 +78,5 @@
                 </div>
             </div>
         </div>
-        <script>
-<!--Valida senha-->
-            var password = document.getElementById('exampleInputPassword1'),
-                    confirm_password = document.getElementById('exampleInputPassword');
-
-            function validatePassword() {
-                if (password.value !== confirm_password.value) {
-                    confirm_password.setCustomValidity("As senhas não conicidem!");
-                } else {
-                    confirm_password.setCustomValidity('Senhas Ok!');
-                }
-            }
-            password.oninput = validatePassword;
-            confirm_password.oninput = validatePassword;
-        </script>
     </body>
 </html>
